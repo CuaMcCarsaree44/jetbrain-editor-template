@@ -1,0 +1,48 @@
+import { RedisMessaging } from "../RedisMessaging";
+import { Redis } from 'ioredis';
+
+/**
+ * @author https://github.com/CuaMcCarsaree44
+ * @since ${MONTH_NAME_FULL}, ${DATE} ${HOUR}:${MINUTE}:${SECOND}
+ *
+ * ${NAME}
+ * 
+ * Put description here...
+ * 
+ * @extends RedisMessaging
+ * @see RedisMessaging
+ */
+export class ${NAME} extends RedisMessaging {
+
+  static TOPIC = "TOPIC";
+
+  constructor () {
+    super();
+    this.getRedisInstance();
+  }
+
+  public produce = (anything: any): void => {
+    const instance: Redis = this.instance;
+
+    instance.publish(
+      ${NAME}.TOPIC,
+      anything
+    );
+  }
+  
+  public consume = (): void => {
+    this.instance.subscribe(
+      ${NAME}.TOPIC,
+      (error, count) => {
+      if (error) {
+        console.error("Failed to subscribe: %s", error.message);
+      } else {
+        console.log(
+          `Subscribed successfully! TOPIC_NAME is currently subscribed to ${count} channels.`
+        );
+      }
+    });
+    
+    this.instance.on('message', async (channel, message) => {});
+  }
+}

@@ -1,0 +1,35 @@
+import express, { Request, Response } from 'express';
+import { BaseResponse } from '../../model/dto/BaseResponse';
+import {BaseController} from "../BaseController";
+
+const app = express.Router();
+
+/**
+ * @author https://github.com/CuaMcCarsaree44
+ * @since ${MONTH_NAME_FULL}, ${DATE} ${HOUR}:${MINUTE}:${SECOND}
+ *
+ * ${NAME}
+ * 
+ * Put description here...
+ * 
+ * @extends BaseController
+ */
+class ${NAME} extends BaseController {
+
+  public routes = (): express.Router => {
+
+    app.post("/example", async (request: Request, response: Response) => {
+
+      return BaseResponse.ok(
+        "",
+        "Success",
+        response
+      );
+    });
+
+    return app;
+  }
+
+}
+
+export default new ${NAME}().routes();

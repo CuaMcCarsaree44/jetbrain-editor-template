@@ -1,0 +1,12 @@
+
+/**
+ * @author https://github.com/CuaMcCarsaree44
+ * @since ${MONTH_NAME_FULL}, ${DATE} ${HOUR}:${MINUTE}:${SECOND}
+ *
+ * ${NAME}
+ * 
+ * Put description here...
+ */
+export interface ${NAME} {
+
+}

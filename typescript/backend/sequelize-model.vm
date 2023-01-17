@@ -1,0 +1,40 @@
+import { DataTypes } from 'sequelize';
+import { Column, HasOne, Model, Table } from 'sequelize-typescript';
+
+@Table({
+    "schema": 'schema',
+    "tableName": 'table_name',
+    "timestamps": false,
+    "paranoid": false,
+    "underscored": true
+})
+class ${NAME} extends Model {
+
+    private hidden = [
+      'is_active'
+    ];
+
+    @Column({
+        primaryKey: true,
+        autoIncrement: true,
+        field: "id",
+        type: DataTypes.BIGINT
+    })
+    id?: number | null;
+
+    /**
+     * toJSON
+     *  Sequelize function settings to cast this model
+     *  into JSON
+     */
+    toJSON() {
+        // hides hidden fields
+        let attributes = Object.assign({}, this.get())
+        for (let a of this.hidden) {
+            delete attributes[a]
+        }
+        return attributes
+    }
+}
+
+export default ${NAME};

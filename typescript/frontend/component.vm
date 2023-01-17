@@ -1,0 +1,23 @@
+import React, {ReactNode} from "react";
+
+/**
+ * @author https://github.com/CuaMcCarsaree44
+ * @since ${MONTH_NAME_FULL}, ${DATE} ${HOUR}:${MINUTE}:${SECOND}
+ *
+ * ${NAME}
+ * 
+ * Put description here...
+ * 
+ * @extends React.Component
+ */
+export class ${NAME} extends React.Component {
+
+  public render = (): ReactNode => {
+    return (
+      <div>
+        This is your ${NAME} Component
+      </div>
+    );
+  }
+
+}
